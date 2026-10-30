@@ -1,0 +1,61 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <rect width="640" height="400" fill="#f3e3c9"/>
+  <rect y="300" width="640" height="100" fill="#c8a27a"/>
+
+  <!-- 창문 -->
+  <rect x="40" y="40" width="220" height="150" fill="#bfe3f5" stroke="#8a6b4a" stroke-width="8"/>
+  <ellipse cx="95" cy="75" rx="28" ry="10" fill="#fff"/>
+  <ellipse cx="210" cy="150" rx="22" ry="8" fill="#fff"/>
+  <line x1="150" y1="40" x2="150" y2="190" stroke="#8a6b4a" stroke-width="6"/>
+  <line x1="40" y1="115" x2="260" y2="115" stroke="#8a6b4a" stroke-width="6"/>
+
+  <!-- 메뉴판 -->
+  <rect x="460" y="40" width="150" height="90" rx="6" fill="#3e3e3e"/>
+  <text x="535" y="68" font-family="sans-serif" font-size="18" font-weight="bold" fill="#fff" text-anchor="middle">MENU</text>
+  <rect x="480" y="82" width="110" height="5" fill="#bbb"/>
+  <rect x="480" y="96" width="90" height="5" fill="#bbb"/>
+  <rect x="480" y="110" width="100" height="5" fill="#bbb"/>
+
+  <!-- 직원과 계산대 -->
+  <circle cx="560" cy="160" r="18" fill="#f1c27d"/>
+  <path d="M542 156 a18 18 0 0 1 36 0 z" fill="#5d4037"/>
+  <rect x="538" y="178" width="44" height="40" rx="8" fill="#2e7d32"/>
+  <rect x="495" y="175" width="34" height="30" fill="#555"/>
+  <rect x="480" y="210" width="160" height="100" fill="#8a5a3b"/>
+  <rect x="475" y="204" width="165" height="10" fill="#6d4c41"/>
+
+  <!-- 화분 -->
+  <rect x="14" y="262" width="36" height="40" fill="#b5651d"/>
+  <circle cx="32" cy="245" r="20" fill="#43a047"/>
+  <circle cx="20" cy="232" r="13" fill="#388e3c"/>
+  <circle cx="44" cy="230" r="13" fill="#388e3c"/>
+
+  <!-- 의자 -->
+  <rect x="128" y="205" width="10" height="95" fill="#5d4037"/>
+  <rect x="128" y="262" width="60" height="8" fill="#5d4037"/>
+  <rect x="452" y="205" width="10" height="95" fill="#5d4037"/>
+  <rect x="402" y="262" width="60" height="8" fill="#5d4037"/>
+
+  <!-- 왼쪽 사람 (빨간 셔츠) -->
+  <rect x="150" y="170" width="40" height="48" rx="18" fill="#3e2723"/>
+  <circle cx="170" cy="188" r="20" fill="#f1c27d"/>
+  <rect x="148" y="208" width="44" height="56" rx="10" fill="#e53935"/>
+  <rect x="170" y="252" width="56" height="14" rx="6" fill="#1a237e"/>
+  <rect x="214" y="252" width="12" height="62" rx="5" fill="#1a237e"/>
+  <rect x="180" y="228" width="50" height="10" rx="5" fill="#e53935"/>
+
+  <!-- 오른쪽 사람 (파란 셔츠) -->
+  <circle cx="430" cy="188" r="20" fill="#e0ac69"/>
+  <path d="M410 184 a20 20 0 0 1 40 0 z" fill="#212121"/>
+  <rect x="408" y="208" width="44" height="56" rx="10" fill="#1e88e5"/>
+  <rect x="374" y="252" width="56" height="14" rx="6" fill="#424242"/>
+  <rect x="374" y="252" width="12" height="62" rx="5" fill="#424242"/>
+  <rect x="370" y="228" width="50" height="10" rx="5" fill="#1e88e5"/>
+
+  <!-- 테이블과 컵 -->
+  <rect x="210" y="248" width="180" height="12" rx="3" fill="#6d4c41"/>
+  <rect x="294" y="260" width="12" height="60" fill="#6d4c41"/>
+  <rect x="270" y="316" width="60" height="8" fill="#6d4c41"/>
+  <rect x="250" y="232" width="16" height="16" rx="2" fill="#fff" stroke="#999"/>
+  <rect x="334" y="232" width="16" height="16" rx="2" fill="#fff" stroke="#999"/>
+</svg>

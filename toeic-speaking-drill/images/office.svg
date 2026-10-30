@@ -1,0 +1,56 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <rect width="640" height="400" fill="#e8eef4"/>
+  <rect y="320" width="640" height="80" fill="#9e9e9e"/>
+
+  <!-- 화이트보드와 차트 -->
+  <rect x="50" y="50" width="230" height="150" fill="#fff" stroke="#78909c" stroke-width="6"/>
+  <rect x="80" y="150" width="24" height="35" fill="#42a5f5"/>
+  <rect x="120" y="120" width="24" height="65" fill="#42a5f5"/>
+  <rect x="160" y="100" width="24" height="85" fill="#42a5f5"/>
+  <rect x="200" y="80" width="24" height="105" fill="#42a5f5"/>
+  <line x1="70" y1="185" x2="250" y2="185" stroke="#455a64" stroke-width="2"/>
+  <rect x="50" y="200" width="230" height="8" fill="#78909c"/>
+
+  <!-- 시계 -->
+  <circle cx="380" cy="80" r="24" fill="#fff" stroke="#455a64" stroke-width="4"/>
+  <line x1="380" y1="80" x2="380" y2="64" stroke="#455a64" stroke-width="3"/>
+  <line x1="380" y1="80" x2="392" y2="86" stroke="#455a64" stroke-width="3"/>
+
+  <!-- 창문 -->
+  <rect x="460" y="40" width="150" height="110" fill="#bbdefb" stroke="#90a4ae" stroke-width="6"/>
+  <ellipse cx="510" cy="80" rx="26" ry="10" fill="#fff"/>
+
+  <!-- 발표자 -->
+  <rect x="302" y="210" width="14" height="110" fill="#263238"/>
+  <rect x="322" y="210" width="14" height="110" fill="#263238"/>
+  <rect x="298" y="130" width="44" height="85" rx="10" fill="#37474f"/>
+  <polygon points="310,130 330,130 320,152" fill="#fff"/>
+  <polygon points="318,136 322,136 325,170 315,170" fill="#c62828"/>
+  <line x1="305" y1="145" x2="262" y2="118" stroke="#37474f" stroke-width="11" stroke-linecap="round"/>
+  <circle cx="258" cy="115" r="6" fill="#f1c27d"/>
+  <circle cx="320" cy="110" r="20" fill="#f1c27d"/>
+  <path d="M300 106 a20 20 0 0 1 40 0 z" fill="#4e342e"/>
+
+  <!-- 앉아 있는 세 사람 -->
+  <circle cx="400" cy="205" r="18" fill="#8d5524"/>
+  <path d="M382 201 a18 18 0 0 1 36 0 z" fill="#212121"/>
+  <rect x="380" y="223" width="40" height="40" rx="8" fill="#8e24aa"/>
+
+  <rect x="462" y="190" width="36" height="44" rx="16" fill="#6d4c41"/>
+  <circle cx="480" cy="205" r="18" fill="#f1c27d"/>
+  <rect x="460" y="223" width="40" height="40" rx="8" fill="#fb8c00"/>
+
+  <circle cx="560" cy="205" r="18" fill="#e0ac69"/>
+  <path d="M542 201 a18 18 0 0 1 36 0 z" fill="#3e2723"/>
+  <rect x="540" y="223" width="40" height="40" rx="8" fill="#43a047"/>
+
+  <!-- 노트북 -->
+  <rect x="384" y="232" width="32" height="22" rx="2" fill="#b0bec5"/>
+  <rect x="464" y="232" width="32" height="22" rx="2" fill="#b0bec5"/>
+  <rect x="544" y="232" width="32" height="22" rx="2" fill="#b0bec5"/>
+
+  <!-- 테이블 -->
+  <rect x="340" y="254" width="280" height="14" fill="#795548"/>
+  <rect x="355" y="268" width="10" height="55" fill="#795548"/>
+  <rect x="595" y="268" width="10" height="55" fill="#795548"/>
+</svg>

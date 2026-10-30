@@ -1,0 +1,58 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 640 400">
+  <rect width="640" height="250" fill="#bde3ff"/>
+  <rect y="240" width="640" height="160" fill="#8bc34a"/>
+  <path d="M0 330 Q320 290 640 330 L640 370 Q320 330 0 370 Z" fill="#d7ccc8"/>
+
+  <!-- 해와 구름 -->
+  <circle cx="570" cy="60" r="30" fill="#fdd835"/>
+  <ellipse cx="160" cy="60" rx="40" ry="14" fill="#fff"/>
+  <ellipse cx="190" cy="50" rx="26" ry="12" fill="#fff"/>
+  <ellipse cx="380" cy="90" rx="34" ry="11" fill="#fff"/>
+
+  <!-- 나무 -->
+  <rect x="62" y="170" width="16" height="80" fill="#6d4c41"/>
+  <circle cx="70" cy="150" r="45" fill="#388e3c"/>
+  <circle cx="40" cy="175" r="28" fill="#388e3c"/>
+  <circle cx="100" cy="175" r="28" fill="#388e3c"/>
+  <rect x="294" y="190" width="12" height="55" fill="#6d4c41"/>
+  <circle cx="300" cy="170" r="34" fill="#43a047"/>
+  <rect x="552" y="160" width="16" height="90" fill="#6d4c41"/>
+  <circle cx="560" cy="140" r="50" fill="#2e7d32"/>
+
+  <!-- 벤치 등받이 -->
+  <rect x="120" y="235" width="150" height="8" fill="#8d6e63"/>
+  <rect x="120" y="250" width="150" height="8" fill="#8d6e63"/>
+
+  <!-- 벤치에서 책 읽는 사람 -->
+  <circle cx="190" cy="228" r="16" fill="#f1c27d"/>
+  <path d="M174 225 a16 16 0 0 1 32 0 z" fill="#5d4037"/>
+  <rect x="174" y="244" width="32" height="36" rx="8" fill="#ff7043"/>
+  <rect x="180" y="270" width="40" height="12" rx="5" fill="#5d4037"/>
+  <rect x="210" y="270" width="10" height="45" rx="4" fill="#5d4037"/>
+  <rect x="176" y="250" width="34" height="20" fill="#3949ab"/>
+  <line x1="193" y1="250" x2="193" y2="270" stroke="#fff" stroke-width="2"/>
+
+  <!-- 벤치 좌석 -->
+  <rect x="115" y="275" width="160" height="10" fill="#795548"/>
+  <rect x="125" y="285" width="8" height="30" fill="#5d4037"/>
+  <rect x="257" y="285" width="8" height="30" fill="#5d4037"/>
+
+  <!-- 개를 산책시키는 사람 -->
+  <line x1="395" y1="285" x2="388" y2="330" stroke="#37474f" stroke-width="9" stroke-linecap="round"/>
+  <line x1="404" y1="285" x2="410" y2="330" stroke="#37474f" stroke-width="9" stroke-linecap="round"/>
+  <rect x="384" y="235" width="30" height="52" rx="8" fill="#00897b"/>
+  <line x1="410" y1="250" x2="425" y2="275" stroke="#00897b" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="399" cy="220" r="16" fill="#e0ac69"/>
+  <path d="M383 217 a16 16 0 0 1 32 0 z" fill="#212121"/>
+  <line x1="425" y1="275" x2="510" y2="305" stroke="#333" stroke-width="2"/>
+
+  <!-- 개 -->
+  <line x1="474" y1="320" x2="474" y2="338" stroke="#6d4c41" stroke-width="5"/>
+  <line x1="482" y1="320" x2="482" y2="338" stroke="#6d4c41" stroke-width="5"/>
+  <line x1="500" y1="320" x2="500" y2="338" stroke="#6d4c41" stroke-width="5"/>
+  <line x1="507" y1="320" x2="507" y2="338" stroke="#6d4c41" stroke-width="5"/>
+  <line x1="468" y1="310" x2="456" y2="298" stroke="#8d6e63" stroke-width="4" stroke-linecap="round"/>
+  <ellipse cx="490" cy="315" rx="24" ry="11" fill="#8d6e63"/>
+  <circle cx="514" cy="303" r="9" fill="#8d6e63"/>
+  <ellipse cx="510" cy="298" rx="4" ry="7" fill="#6d4c41"/>
+</svg>

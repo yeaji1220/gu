@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>토익스피킹 만능문장</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <h1>토익스피킹 만능문장</h1>
+  </header>
+
+  <main class="container">
+    <!-- 화면 1: 시작 -->
+    <section id="screen-home" class="screen">
+      <h2 class="section-title">만능문장 암기</h2>
+      <p class="lead">한글 문장을 보고 영어로 쓰기 · 랜덤 10문장</p>
+      <div class="part-cards">
+        <button type="button" class="part-card" data-part="picture">
+          <span class="part-card-title">사진묘사</span>
+          <span class="part-card-count" id="count-picture"></span>
+        </button>
+        <button type="button" class="part-card" data-part="question">
+          <span class="part-card-title">질문에 답하기</span>
+          <span class="part-card-count" id="count-question"></span>
+        </button>
+      </div>
+      <h2 class="section-title">실전 문제</h2>
+      <p class="lead">문제를 보고 영어로 답 쓰기 · 모범답안과 비교</p>
+      <div class="part-cards part-cards-practice">
+        <button type="button" class="part-card" data-practice="picture">
+          <span class="part-card-title">사진묘사 (문제)</span>
+          <span class="part-card-count" id="practice-count-picture"></span>
+        </button>
+        <button type="button" class="part-card" data-practice="question">
+          <span class="part-card-title">질문에 답하기 (문제)</span>
+          <span class="part-card-count" id="practice-count-question"></span>
+        </button>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn" id="btn-manage">문장 관리</button>
+      </div>
+    </section>
+
+    <!-- 화면 2: 테스트 -->
+    <section id="screen-test" class="screen" hidden>
+      <div class="test-top">
+        <span class="test-part" id="test-part"></span>
+        <span class="badge" id="test-retry-badge" hidden>틀린 문장 다시 풀기</span>
+        <span class="test-progress" id="test-progress"></span>
+      </div>
+      <div class="card">
+        <p class="question-ko" id="question-ko"></p>
+        <input type="text" id="answer-input" class="answer-input" autocomplete="off" spellcheck="false" placeholder="영어로 입력하고 Enter">
+        <div class="actions" id="typing-actions">
+          <button type="button" class="btn btn-primary" id="btn-reveal">정답 확인 (Enter)</button>
+        </div>
+        <div id="reveal-area" hidden>
+          <div class="compare">
+            <div class="compare-row">
+              <span class="compare-label">내 답</span>
+              <p class="my-answer" id="my-answer"></p>
+            </div>
+            <div class="compare-row">
+              <span class="compare-label">정답</span>
+              <p class="correct-answer" id="correct-answer"></p>
+            </div>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn btn-correct" id="btn-correct">맞음 (1)</button>
+            <button type="button" class="btn btn-wrong" id="btn-wrong">틀림 (2)</button>
+          </div>
+        </div>
+      </div>
+      <div class="actions actions-end">
+        <button type="button" class="btn btn-ghost" id="btn-quit">그만하기</button>
+      </div>
+    </section>
+
+    <!-- 화면 3: 결과 -->
+    <section id="screen-result" class="screen" hidden>
+      <div class="card">
+        <p class="result-summary" id="result-summary"></p>
+        <p class="result-perfect" id="result-perfect" hidden>모두 맞혔어요!</p>
+        <ul class="wrong-list" id="wrong-list"></ul>
+      </div>
+      <div class="actions">
+        <button type="button" class="btn btn-primary" id="btn-retry-wrong">틀린 문장만 다시 풀기</button>
+        <button type="button" class="btn" id="btn-new-same">같은 파트 새로 풀기</button>
+        <button type="button" class="btn btn-ghost" id="btn-result-home">처음으로</button>
+      </div>
+      <p class="hint" id="result-hint"></p>
+    </section>
+
+    <!-- 화면 5: 실전 문제 -->
+    <section id="screen-practice" class="screen" hidden>
+      <div class="test-top">
+        <span class="test-part" id="practice-part"></span>
+        <span class="test-progress" id="practice-progress"></span>
+      </div>
+      <div class="card">
+        <p class="practice-intro" id="practice-intro" hidden></p>
+        <img class="practice-image" id="practice-image" alt="" hidden>
+        <p class="practice-question" id="practice-question"></p>
+        <textarea id="practice-input" class="answer-input practice-input" spellcheck="false" placeholder="영어로 답을 입력하세요 (줄바꿈: Shift+Enter)"></textarea>
+        <div class="actions" id="practice-typing-actions">
+          <button type="button" class="btn btn-primary" id="btn-practice-reveal">정답 확인 (Enter)</button>
+        </div>
+        <div id="practice-reveal-area" hidden>
+          <div class="compare">
+            <div class="compare-row">
+              <span class="compare-label">내 답</span>
+              <p class="my-answer practice-text" id="practice-my-answer"></p>
+            </div>
+            <div class="compare-row">
+              <span class="compare-label">모범답안</span>
+              <p class="model-answer practice-text" id="practice-model-answer"></p>
+            </div>
+          </div>
+          <div class="actions">
+            <button type="button" class="btn btn-primary" id="btn-practice-next"></button>
+          </div>
+        </div>
+      </div>
+      <div class="actions actions-end">
+        <button type="button" class="btn btn-ghost" id="btn-practice-quit">그만하기</button>
+      </div>
+    </section>
+
+    <!-- 화면 4: 문장 관리 -->
+    <section id="screen-manage" class="screen" hidden>
+      <div class="card">
+        <h2>문장 추가</h2>
+        <form id="add-form" novalidate>
+          <label class="field">
+            <span>파트</span>
+            <select id="add-part">
+              <option value="picture">사진묘사</option>
+              <option value="question">질문에 답하기</option>
+            </select>
+          </label>
+          <label class="field">
+            <span>한글 문장</span>
+            <input type="text" id="add-ko" autocomplete="off">
+          </label>
+          <label class="field">
+            <span>영어 문장</span>
+            <input type="text" id="add-en" autocomplete="off" spellcheck="false">
+          </label>
+          <p class="form-error" id="add-error" hidden></p>
+          <div class="actions">
+            <button type="submit" class="btn btn-primary">추가</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="card">
+        <div class="tabs" role="tablist">
+          <button type="button" class="tab" data-tab="picture" role="tab">사진묘사</button>
+          <button type="button" class="tab" data-tab="question" role="tab">질문에 답하기</button>
+        </div>
+        <ul class="sentence-list" id="sentence-list"></ul>
+      </div>
+
+      <div class="actions">
+        <button type="button" class="btn btn-ghost" id="btn-manage-home">처음으로</button>
+      </div>
+    </section>
+  </main>
+
+  <script src="sentences.js"></script>
+  <script src="problems.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
