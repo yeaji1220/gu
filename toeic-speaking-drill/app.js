@@ -90,6 +90,7 @@
 
   function showScreen(name) {
     state.screen = name;
+    document.body.setAttribute("data-screen", name);
     Object.keys(screens).forEach(function (key) {
       screens[key].hidden = key !== name;
     });
@@ -126,6 +127,114 @@
     });
     $("practice-count-picture").textContent = "사진 " + PICTURE_PROBLEMS.length + "개";
     $("practice-count-question").textContent = "문제 " + QUESTION_PROBLEMS.length + "세트 · 질문 3개씩";
+    $("stat-sentences").textContent = DEFAULT_SENTENCES.length + customSentences.length;
+    $("stat-problems").textContent = PICTURE_PROBLEMS.length + QUESTION_PROBLEMS.length;
+    renderStudy();
+  }
+
+  // ── 학습 기록 (localStorage) ──
+  // 날짜별로 푼 문장 수를 저장한다: { "2026-10-30": 24, ... }
+  var LOG_KEY = "toeicDrill.studyLog";
+  var GOAL_KEY = "toeicDrill.dailyGoal";
+  var studyLog = loadJson(LOG_KEY, {});
+  var dailyGoal = Number(loadJson(GOAL_KEY, 20)) || 20;
+  var calMonth = new Date();
+  calMonth.setDate(1);
+
+  function loadJson(key, fallback) {
+    try {
+      var raw = localStorage.getItem(key);
+      if (!raw) return fallback;
+      var v = JSON.parse(raw);
+      return v !== null && typeof v === typeof fallback ? v : fallback;
+    } catch (e) {
+      return fallback;
+    }
+  }
+
+  function saveJson(key, value) {
+    try {
+      localStorage.setItem(key, JSON.stringify(value));
+    } catch (e) {
+      // 저장 실패 시에도 이번 세션 메모리에서는 계속 동작한다
+    }
+  }
+
+  function dateKey(d) {
+    var m = d.getMonth() + 1;
+    var day = d.getDate();
+    return d.getFullYear() + "-" + (m < 10 ? "0" : "") + m + "-" + (day < 10 ? "0" : "") + day;
+  }
+
+  function logStudy() {
+    var key = dateKey(new Date());
+    studyLog[key] = (studyLog[key] || 0) + 1;
+    saveJson(LOG_KEY, studyLog);
+  }
+
+  function countOn(d) {
+    return studyLog[dateKey(d)] || 0;
+  }
+
+  // 오늘(아직 안 했으면 어제)부터 거꾸로 이어진 공부한 날 수
+  function getStreak() {
+    var d = new Date();
+    if (!countOn(d)) d.setDate(d.getDate() - 1);
+    var n = 0;
+    while (countOn(d) > 0) {
+      n++;
+      d.setDate(d.getDate() - 1);
+    }
+    return n;
+  }
+
+  function renderStudy() {
+    var today = countOn(new Date());
+    var pct = Math.min(100, Math.round(today / dailyGoal * 100));
+    $("today-done").textContent = today;
+    $("today-goal").textContent = dailyGoal;
+    $("today-ring").style.setProperty("--pct", pct);
+    $("today-ring").classList.toggle("done", today >= dailyGoal);
+    $("today-msg").textContent = today >= dailyGoal
+      ? "오늘 목표 달성! 대단해요 🎉"
+      : today === 0
+        ? "오늘은 아직 시작 전이에요"
+        : "목표까지 " + (dailyGoal - today) + "문장 남았어요";
+    $("goal-select").value = String(dailyGoal);
+
+    var keys = Object.keys(studyLog);
+    $("total-sentences").textContent = keys.reduce(function (sum, k) { return sum + studyLog[k]; }, 0);
+    $("total-days").textContent = keys.filter(function (k) { return studyLog[k] > 0; }).length + "일";
+    $("streak").textContent = getStreak() + "일";
+
+    renderCalendar();
+  }
+
+  function renderCalendar() {
+    var y = calMonth.getFullYear();
+    var m = calMonth.getMonth();
+    var todayKey = dateKey(new Date());
+    var box = $("cal-days");
+    $("cal-title").textContent = y + "년 " + (m + 1) + "월";
+    box.textContent = "";
+
+    var first = new Date(y, m, 1).getDay();
+    for (var i = 0; i < first; i++) box.appendChild(document.createElement("span"));
+
+    var last = new Date(y, m + 1, 0).getDate();
+    for (var day = 1; day <= last; day++) {
+      var d = new Date(y, m, day);
+      var n = countOn(d);
+      var cell = document.createElement("span");
+      cell.className = "cal-day";
+      if (n > 0) {
+        cell.className += n >= dailyGoal ? " lv3" : n >= dailyGoal / 2 ? " lv2" : " lv1";
+        cell.title = (m + 1) + "월 " + day + "일 · " + n + "문장";
+      }
+      if (dateKey(d) === todayKey) cell.className += " today";
+      cell.textContent = day;
+      box.appendChild(cell);
+    }
   }
 
   function goHome() {
@@ -187,6 +296,7 @@
       typed: $("answer-input").value.trim(),
       correct: correct
     });
+    logStudy();
     state.index++;
     if (state.index < state.queue.length) {
       renderQuestion();
@@ -399,6 +509,7 @@
 
     practice.phase = "revealed";
     input.disabled = true;
+    logStudy();
     showMyAnswer($("practice-my-answer"), input.value.trim());
     $("practice-model-answer").textContent = currentPracticeItem().answer;
 
@@ -503,6 +614,20 @@
         nextPractice();
       }
     }
+  });
+
+  $("goal-select").addEventListener("change", function (e) {
+    dailyGoal = Number(e.target.value);
+    saveJson(GOAL_KEY, dailyGoal);
+    renderStudy();
+  });
+  $("cal-prev").addEventListener("click", function () {
+    calMonth.setMonth(calMonth.getMonth() - 1);
+    renderCalendar();
+  });
+  $("cal-next").addEventListener("click", function () {
+    calMonth.setMonth(calMonth.getMonth() + 1);
+    renderCalendar();
   });
 
   goHome();
