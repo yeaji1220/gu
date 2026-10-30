@@ -3,6 +3,19 @@
 > 결론: **Vercel로 바로 배포할 수 있고, Supabase는 지금은 필요 없습니다.**
 > 아래 "내가 할 일"만 따라 하면 됩니다. 코드 수정은 필요 없습니다.
 
+## 현재 배포 상태 (2026-10-30 연결 완료)
+
+| 항목 | 값 |
+|---|---|
+| 사이트 주소 | https://toeic-speaking-drill.vercel.app |
+| Vercel 프로젝트 | `yeaji` 팀 → `toeic-speaking-drill` (Hobby, 무료) |
+| 연결된 저장소 | GitHub `yeaji1220/gu`, `main` 브랜치 |
+| Root Directory | `toeic-speaking-drill` |
+| GitHub 앱 권한 | Vercel 앱은 **`gu` 저장소에만** 접근 허용 |
+| 자동 배포 | `main`에 push하면 자동으로 다시 배포 |
+
+2장의 ①~④는 이미 끝났습니다. 앞으로는 코드를 고치고 GitHub에 올리기만 하면 됩니다.
+
 ---
 
 ## 1. Supabase가 필요한가? → 필요 없음
@@ -86,5 +99,8 @@ GitHub 저장소 `yeaji1220/gu`를 Vercel에 연결하는 방식입니다. 한 �
 |---|---|
 | 접속하면 404 | Root Directory가 `toeic-speaking-drill`이 아님 → **Settings → Build and Deployment → Root Directory** 수정 후 **Redeploy** |
 | Import 목록에 `gu`가 없음 | GitHub 앱 권한 → ②-2 다시 |
+| "install the GitHub integration first" 문구 | Vercel 앱이 GitHub에 설치되지 않음 → https://github.com/apps/vercel/installations/new 에서 `gu`만 선택해 설치 |
+| Deploy를 눌러도 반응 없음 / "Reauthenticate" 창 | 이메일로 온 코드로 본인 확인 → 대시보드에서 프로젝트가 생겼는지 확인 (생겼으면 push하면 배포됨) |
+| 프로젝트는 있는데 "No Production Deployment" | GitHub `main`에 아무 커밋이나 push하면 첫 배포가 시작됨 |
 | 다른 GitHub 계정으로 로그인됨 | Vercel에서 로그아웃 → github.com에서도 로그아웃 → yeaji1220으로 다시 로그인 |
 | 화면이 깨지거나 그림이 안 나옴 | 배포 주소와 함께 알려주면 원인을 확인해 드립니다 |
