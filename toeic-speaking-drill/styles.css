@@ -551,6 +551,11 @@ body[data-screen="home"] .container {
   .hero-title {
     font-size: 30px;
   }
+  .study {
+    width: 100%;
+    max-width: 440px;
+    justify-self: center;
+  }
   .hero-stats {
     gap: 20px;
   }
